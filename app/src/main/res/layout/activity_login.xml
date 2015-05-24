@@ -30,7 +30,7 @@
                 android:src="@drawable/logo_big" />
 
             <TextView
-                android:textSize="22sp"
+                android:textSize="26sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

@@ -3,6 +3,7 @@ package cl.frabarz.carro;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
@@ -21,7 +22,7 @@ public class RegisterActivity extends ActionBarActivity
         input_password = (EditText) findViewById(R.id.register_password);
     }
 
-    public void registrar()
+    public void registrar(View view)
     {
         EditText
                 input_nombre = (EditText) findViewById(R.id.register_nombre),

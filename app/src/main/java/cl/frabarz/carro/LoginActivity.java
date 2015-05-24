@@ -25,12 +25,15 @@ public class LoginActivity extends Activity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Bundle valores = data.getExtras();
+        if (resultCode == RESULT_OK)
+        {
+            Bundle valores = data.getExtras();
 
-        input_username.setText( valores.getString("username") );
-        input_password.setText( valores.getString("password") );
+            input_username.setText( valores.getString("username") );
+            input_password.setText( valores.getString("password") );
 
-        iniciarSesion();
+            iniciarSesion();
+        }
     }
 
     private boolean autenticar(String username, String password)
@@ -45,17 +48,21 @@ public class LoginActivity extends Activity
 
     private void iniciarSesion()
     {
-        Toast aviso = Toast.makeText(getBaseContext(), "Iniciando sesión", Toast.LENGTH_SHORT);
-        aviso.show();
+        Toast aviso = Toast.makeText(getBaseContext(), "", Toast.LENGTH_SHORT);
 
         String username = input_username.getText().toString();
         String password = input_password.getText().toString();
 
         if ( autenticar(username, password) )
         {
+            aviso.setText("Bienvenido");
+            aviso.show();
+
             almacenarCredenciales(username, password);
+
             Intent landing = new Intent(LoginActivity.this, LandingActivity.class);
             startActivity(landing);
+
             finish();
         }
         else

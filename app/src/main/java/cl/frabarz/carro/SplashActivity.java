@@ -23,13 +23,17 @@ public class SplashActivity extends Activity {
                 } finally {
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
-                    finish();
+                    //overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 }
             }
         };
         timer.start();
+    }
 
-        //ImageView imagen = (ImageView) findViewById(R.id.landing_logo);
-        //imagen.setImageResource(R.drawable.logo_big);
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }
