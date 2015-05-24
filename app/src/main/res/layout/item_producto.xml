@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/producto_imagen"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo_big"/>
+
+        <TextView
+            android:id="@+id/producto_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/producto_imagen"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toRightOf="@+id/producto_imagen"
+            android:layout_toEndOf="@+id/producto_imagen"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:text="Nombre"/>
+
+        <TextView
+            android:id="@+id/producto_precio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/producto_nombre"
+            android:layout_alignStart="@+id/producto_nombre"
+            android:layout_below="@+id/producto_nombre"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="$precio" />
+
+    </RelativeLayout>
+
+</LinearLayout>
