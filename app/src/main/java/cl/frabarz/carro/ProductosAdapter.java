@@ -63,7 +63,7 @@ public class ProductosAdapter extends ArrayAdapter<Object>
 
         placeHolder.nombre.setText(producto.getNombre());
         placeHolder.precio.setText(producto.getPrecio());
-        placeHolder.imagen.setImageResource(R.drawable.logo_big);
+        placeHolder.imagen.setImageResource(R.mipmap.ic_launcher);
 
         return (convertView);
     }

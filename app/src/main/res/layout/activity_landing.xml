@@ -2,40 +2,84 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="@dimen/common_vertical_margin"
-    android:paddingRight="@dimen/common_horizontal_margin"
-    android:paddingBottom="@dimen/common_vertical_margin"
-    android:paddingLeft="@dimen/common_horizontal_margin">
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/common_vertical_margin"
+        android:layout_marginRight="@dimen/common_horizontal_margin"
+        android:layout_marginEnd="@dimen/common_horizontal_margin"
+        android:text="C" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/common_vertical_margin"
+        android:layout_marginLeft="@dimen/common_horizontal_margin"
+        android:layout_marginStart="@dimen/common_horizontal_margin"
+        android:layout_marginRight="65dp"
+        android:layout_marginEnd="65dp">
 
         <EditText
             android:hint="@string/action_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"/>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="B"/>
 
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp">
+        android:layout_marginTop="60dp">
 
-        <Gallery
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/gallery" />
+            android:orientation="vertical"
+            android:paddingTop="@dimen/common_vertical_margin"
+            android:paddingLeft="@dimen/common_horizontal_margin"
+            android:paddingStart="@dimen/common_horizontal_margin"
+            android:paddingRight="@dimen/common_horizontal_margin"
+            android:paddingEnd="@dimen/common_horizontal_margin"
+            android:paddingBottom="@dimen/common_vertical_margin">
+
+            <Button
+                android:id="@+id/btn_categoria_hogar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Hogar"
+                android:onClick="launchCategoryActivity"/>
+            <Button
+                android:id="@+id/btn_categoria_auto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Auto"
+                android:onClick="launchCategoryActivity"/>
+            <Button
+                android:id="@+id/btn_categoria_cuidado"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Cuidado personal"
+                android:onClick="launchCategoryActivity"/>
+
+            </LinearLayout>
+
     </ScrollView>
 
 </RelativeLayout>

@@ -31,17 +31,17 @@ public class CategoryActivity extends Activity
         Random r = new Random();
 
         Resources res = getResources();
-        String lipsum = res.getString(R.string.lipsum);
+        //String lipsum = res.getString(R.string.lipsum);
         String[] elems = res.getStringArray(R.array.example_products);
         Integer n_elems = elems.length;
 
-        for (int i = 0; i < 200; i++)
+        for (int i = 0; i < 100; i++)
         {
             producto = new Producto();
             producto.setId(i);
             producto.setNombre( elems[r.nextInt(n_elems)] );
-            producto.setDescripcion(lipsum);
-            producto.setPrecio( "$" + ((r.nextInt(10) + 1) * 1000) );
+            //producto.setDescripcion(lipsum);
+            producto.setPrecio( "$" + ((r.nextInt(15) + 1) * 1000) );
 
             Array_Productos.add(producto);
         }
