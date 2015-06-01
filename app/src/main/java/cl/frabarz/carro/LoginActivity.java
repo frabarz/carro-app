@@ -1,11 +1,16 @@
 package cl.frabarz.carro;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.regex.Pattern;
 
 public class LoginActivity extends Activity
 {
@@ -19,6 +24,20 @@ public class LoginActivity extends Activity
 
         input_username = (EditText) findViewById(R.id.login_username);
         input_password = (EditText) findViewById(R.id.login_password);
+
+        Pattern emailPattern = Patterns.EMAIL_ADDRESS;
+        Account[] accounts = AccountManager.get(LoginActivity.this).getAccounts();
+        for (Account account: accounts)
+        {
+            if (emailPattern.matcher(account.name).matches())
+            {
+                input_username.setText(account.name);
+                break;
+            }
+        }
+
+        emailPattern = null;
+        accounts = null;
     }
 
     @Override
