@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="paleta_background">#E5ECDA</color>
+    <color name="paleta_fuente">#989377</color>
+    <color name="paleta_resalte1">#129E9D</color>
+    <color name="paleta_resalte2">#D94808</color>
+    <color name="paleta_resalte3">#CD0438</color>
+</resources>

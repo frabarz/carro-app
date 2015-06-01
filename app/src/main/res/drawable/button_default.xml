@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:drawable="@drawable/drop_shadow" />
+            <item>
+                <shape android:dither="true" android:shape="rectangle">
+                    <padding
+                        android:left="1dp"
+                        android:right="1dp"
+                        android:bottom="3dp" />
+                    <corners android:radius="2dp" />
+                    <solid android:color="#ffffff" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <item>
+        <layer-list>
+            <item android:drawable="@drawable/drop_shadow" />
+            <item>
+                <shape android:dither="true" android:shape="rectangle">
+                    <padding
+                        android:left="1dp"
+                        android:right="1dp"
+                        android:bottom="3dp" />
+                    <corners android:radius="2dp" />
+                    <solid android:color="#ffffff" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+</selector>

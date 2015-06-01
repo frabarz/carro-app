@@ -1,8 +1,72 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    </style>
+
+    <style name="AppTheme.Activity">
+
+        <item name="android:background">@color/paleta_background</item>
+        <item name="background">@color/paleta_background</item>
+
+    </style>
+
+    <style name="activity_btncarro_complement">
+
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginRight">70dp</item>
+
+    </style>
+
+    <style name="activity_titlebar" parent="activity_btncarro_complement">
+
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">18sp</item>
+
+    </style>
+
+    <style name="activity_searchbar" parent="activity_btncarro_complement">
+
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+
+        <item name="android:background">@drawable/button_default</item>
+
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="button_carro">
+
+        <item name="android:background">@drawable/button_carro</item>
+
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+
+    </style>
+
+    <style name="h1">
+        <item name="android:textSize">@dimen/text_size_h1</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="h2">
+        <item name="android:textSize">@dimen/text_size_h2</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="h3">
+        <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="android:layout_marginBottom">4dp</item>
     </style>
 
 </resources>

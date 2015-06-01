@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:drawable="@drawable/drop_shadow" />
+            <item>
+                <shape android:dither="true" android:shape="rectangle">
+                    <padding
+                        android:left="1dp"
+                        android:right="1dp"
+                        android:bottom="3dp" />
+                    <corners android:radius="2dp" />
+                    <solid android:color="@color/paleta_resalte2" />
+                </shape>
+            </item>
+            <item>
+                <inset
+                    android:drawable="@drawable/logo_square"
+                    android:insetTop="8dp"
+                    android:insetRight="8dp"
+                    android:insetBottom="8dp"
+                    android:insetLeft="8dp"/>
+            </item>
+        </layer-list>
+    </item>
+
+    <item>
+        <layer-list>
+            <item android:drawable="@drawable/drop_shadow" />
+            <item>
+                <shape android:dither="true" android:shape="rectangle">
+                    <padding
+                        android:left="1dp"
+                        android:right="1dp"
+                        android:bottom="3dp" />
+                    <corners android:radius="2dp" />
+                    <solid android:color="@color/paleta_resalte3" />
+                </shape>
+            </item>
+            <item>
+                <inset
+                    android:drawable="@drawable/logo_square"
+                    android:insetTop="8dp"
+                    android:insetRight="8dp"
+                    android:insetBottom="8dp"
+                    android:insetLeft="8dp"/>
+            </item>
+        </layer-list>
+    </item>
+
+</selector>
