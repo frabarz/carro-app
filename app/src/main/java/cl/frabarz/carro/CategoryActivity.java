@@ -1,16 +1,17 @@
 package cl.frabarz.carro;
 
 import android.app.Activity;
-import android.content.res.Resources;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-
-import java.util.ArrayList;
-import java.util.Random;
+import android.widget.TextView;
 
 public class CategoryActivity extends Activity
 {
-    public ArrayList<Producto> Array_Productos = new ArrayList<Producto>();
+    private ProductosAdapter
+        adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -18,32 +19,37 @@ public class CategoryActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
-        cargarNoticias();
+        adapter = new ProductosAdapter(CategoryActivity.this);
+        adapter.generarProductos(100);
 
         ListView lista = (ListView) findViewById(R.id.categoria_listview);
-        ProductosAdapter adapter = new ProductosAdapter(this, Array_Productos);
         lista.setAdapter(adapter);
+
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                Producto producto = adapter.getItem(position);
+                Intent intent = new Intent(CategoryActivity.this, ProductActivity.class);
+
+                intent.putExtra("id", producto.getId());
+                intent.putExtra("nombre", producto.getNombre());
+                intent.putExtra("precio", producto.getPrecio());
+                intent.putExtra("descripcion", producto.getDescripcion());
+                intent.putExtra("imagen", producto.getImagen());
+
+                startActivity(intent);
+            }
+        });
+
+        Intent intent = getIntent();
+        TextView titulo = (TextView) findViewById(R.id.categoria_title);
+        titulo.setText(intent.getStringExtra("titulo"));
     }
 
-    private void cargarNoticias()
+    public void launchCartActivity(View view)
     {
-        Producto producto;
-        Random r = new Random();
-
-        Resources res = getResources();
-        //String lipsum = res.getString(R.string.lipsum);
-        String[] elems = res.getStringArray(R.array.example_products);
-        Integer n_elems = elems.length;
-
-        for (int i = 0; i < 100; i++)
-        {
-            producto = new Producto();
-            producto.setId(i);
-            producto.setNombre( elems[r.nextInt(n_elems)] );
-            //producto.setDescripcion(lipsum);
-            producto.setPrecio( "$" + ((r.nextInt(15) + 1) * 1000) );
-
-            Array_Productos.add(producto);
-        }
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
     }
 }

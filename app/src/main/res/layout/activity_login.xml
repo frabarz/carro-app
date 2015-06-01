@@ -1,81 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="fill_parent"
+    android:id="@+id/scrollView">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/scrollView">
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingRight="@dimen/landing_horizontal_margin"
+        android:paddingBottom="10dp"
+        android:paddingLeft="@dimen/landing_horizontal_margin"
+        tools:context=".Landing">
 
-        <LinearLayout
+        <ImageView
+            android:contentDescription="Logo de la tienda"
+            android:id="@+id/landing_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_full" />
+
+        <TextView
+            android:textSize="26sp"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:paddingRight="@dimen/landing_horizontal_margin"
-            android:paddingBottom="10dp"
-            android:paddingLeft="@dimen/landing_horizontal_margin"
-            tools:context=".Landing">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/action_login"/>
 
-            <ImageView
-                android:contentDescription="Logo de la tienda"
-                android:id="@+id/landing_logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/logo_big" />
+        <TextView
+            android:text="@string/user_data_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/login_username"
+            android:hint="@string/user_data_username"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            <TextView
-                android:textSize="26sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/action_login"/>
+        <TextView
+            android:text="@string/user_data_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/login_password"
+            android:hint="@string/user_data_password"
+            android:inputType="textPassword"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            <TextView
-                android:text="@string/user_data_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <EditText
-                android:id="@+id/login_username"
-                android:hint="@string/user_data_username"
-                android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/landing_button_login"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_login"
+            android:onClick="checkLoginData" />
+        <Button
+            android:id="@+id/landing_button_register"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_register"
+            android:onClick="openRegisterForm" />
+    </LinearLayout>
 
-            <TextView
-                android:text="@string/user_data_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <EditText
-                android:id="@+id/login_password"
-                android:hint="@string/user_data_password"
-                android:inputType="textPassword"
-                android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/landing_button_login"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/action_login"
-                android:onClick="checkLoginData" />
-            <Button
-                android:id="@+id/landing_button_register"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/action_register"
-                android:onClick="openRegisterForm" />
-        </LinearLayout>
-
-    </ScrollView>
-
-</LinearLayout>
+</ScrollView>

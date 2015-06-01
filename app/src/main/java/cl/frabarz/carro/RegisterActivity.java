@@ -10,7 +10,9 @@ import android.widget.RadioGroup;
 
 public class RegisterActivity extends ActionBarActivity
 {
-    private EditText input_username, input_password;
+    private EditText
+        input_username,
+        input_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -35,12 +37,12 @@ public class RegisterActivity extends ActionBarActivity
                 genero = String.valueOf(input_genero.getCheckedRadioButtonId());
 
         // Aquí hay que enviar los datos al servicio web de registro
-        finalizarRegistro();
+        finalizarRegistro(getIntent());
     }
 
-    private void finalizarRegistro()
+    private void finalizarRegistro(Intent data)
     {
-        Intent data = new Intent();
+        //Intent data = new Intent();
         data.putExtra("username", input_username.getText().toString());
         data.putExtra("password", input_password.getText().toString());
         setResult(RESULT_OK, data);

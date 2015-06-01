@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class LandingActivity extends Activity
 {
@@ -14,10 +15,22 @@ public class LandingActivity extends Activity
         setContentView(R.layout.activity_landing);
     }
 
+    public void launchCartActivity(View view)
+    {
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
+    }
+
     public void launchCategoryActivity(View view)
     {
-        Intent intent = new Intent(LandingActivity.this, CategoryActivity.class);
+        Intent intent = new Intent(this, CategoryActivity.class);
+        intent.putExtra("titulo", ((Button) view).getText());
         startActivity(intent);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    public void launchSearchActivity(View view)
+    {
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
     }
 }

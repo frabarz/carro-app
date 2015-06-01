@@ -4,24 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ListView
+        android:id="@+id/activity_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/activity_vertical_titlebar_spacer"/>
+
     <Button
         style="@style/button_carro"
         android:layout_width="@dimen/carro_btn_width"
         android:layout_height="@dimen/carro_btn_height"
         android:onClick="launchCartActivity" />
 
-    <TextView
-        style="@style/activity_titlebar"
-        android:id="@+id/categoria_title"
+    <EditText
+        style="@style/activity_searchbar"
+        android:id="@+id/search_input"
+        android:hint="@string/action_search"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/carro_btn_height"
-        android:textSize="22sp"
-        android:text="Categoría" />
-
-    <ListView
-        android:id="@+id/categoria_listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/activity_vertical_titlebar_spacer"/>
+        android:layout_height="@dimen/carro_btn_height" />
 
 </RelativeLayout>
