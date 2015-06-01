@@ -1,11 +1,16 @@
 package cl.frabarz.carro;
 
+import java.text.Normalizer;
+
 public class Producto {
-    private Integer id;
-    private String nombre;
-    private String precio;
-    private String descripcion;
-    private String imagen;
+    private Integer
+        id;
+    private String
+        nombre,
+        precio,
+        categoria,
+        descripcion,
+        imagen;
 
     public void setId(Integer id)
     {
@@ -18,6 +23,10 @@ public class Producto {
     public void setPrecio(String precio)
     {
         this.precio = precio;
+    }
+    public void setCategoria(String categoria)
+    {
+        this.categoria = categoria;
     }
     public void setDescripcion(String descripcion)
     {
@@ -40,6 +49,10 @@ public class Producto {
     {
         return this.precio;
     }
+    public String getCategoria()
+    {
+        return this.categoria;
+    }
     public String getDescripcion()
     {
         return this.descripcion;
@@ -47,5 +60,11 @@ public class Producto {
     public String getImagen()
     {
         return this.imagen;
+    }
+
+    public String getNombreNormalizado()
+    {
+        return Normalizer.normalize(this.nombre.toLowerCase(), Normalizer.Form.NFD)
+                .replaceAll("[^\\p{ASCII}]", "");
     }
 }
