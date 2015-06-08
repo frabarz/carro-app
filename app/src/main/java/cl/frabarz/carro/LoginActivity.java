@@ -14,7 +14,9 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends Activity
 {
-    private EditText input_username, input_password;
+    private EditText
+        input_username,
+        input_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -72,7 +74,12 @@ public class LoginActivity extends Activity
         String username = input_username.getText().toString();
         String password = input_password.getText().toString();
 
-        if ( autenticar(username, password) )
+        if ( password.length() == 0 )
+        {
+            aviso.setText("No puedes dejar el campo de contraseña vacío.");
+            aviso.show();
+        }
+        else if ( autenticar(username, password) )
         {
             aviso.setText("Bienvenido");
             aviso.show();
@@ -94,6 +101,7 @@ public class LoginActivity extends Activity
     public void openRegisterForm(View view)
     {
         Intent register = new Intent(LoginActivity.this, RegisterActivity.class);
+        register.putExtra("username", input_username.getText().toString());
         startActivityForResult(register, 0);
     }
 

@@ -22,6 +22,12 @@ public class RegisterActivity extends ActionBarActivity
 
         input_username = (EditText) findViewById(R.id.register_username);
         input_password = (EditText) findViewById(R.id.register_password);
+
+        String username = getIntent().getStringExtra("username");
+        if (username.length() > 0)
+            input_username.setText(username);
+
+        username = null;
     }
 
     public void registrar(View view)
