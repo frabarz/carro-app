@@ -2,7 +2,10 @@ package cl.frabarz.carro;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Patterns;
@@ -17,6 +20,8 @@ public class LoginActivity extends Activity
     private EditText
         input_username,
         input_password;
+    private UsersHelper
+        db_proxy = new UsersHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -57,16 +62,6 @@ public class LoginActivity extends Activity
         }
     }
 
-    private boolean autenticar(String username, String password)
-    {
-        return password.equals("asdf");
-    }
-
-    private void almacenarCredenciales(String username, String password)
-    {
-        //lalala (8)
-    }
-
     private void iniciarSesion()
     {
         Toast aviso = Toast.makeText(getBaseContext(), "", Toast.LENGTH_SHORT);
@@ -79,22 +74,29 @@ public class LoginActivity extends Activity
             aviso.setText("No puedes dejar el campo de contraseña vacío.");
             aviso.show();
         }
-        else if ( autenticar(username, password) )
-        {
-            aviso.setText("Bienvenido");
-            aviso.show();
-
-            almacenarCredenciales(username, password);
-
-            Intent landing = new Intent(LoginActivity.this, LandingActivity.class);
-            startActivity(landing);
-
-            finish();
-        }
         else
         {
-            aviso.setText("Contraseña incorrecta");
-            aviso.show();
+            ContentValues user = db_proxy.autenticar(username, password);
+            if ( user.containsKey("username") )
+            {
+                SharedPreferences prefs = getSharedPreferences("carroapp", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("last_user_id", (int) user.get("id"));
+                editor.commit();
+
+                aviso.setText("Bienvenido");
+                aviso.show();
+
+                Intent landing = new Intent(LoginActivity.this, LandingActivity.class);
+                startActivity(landing);
+
+                this.finish();
+            }
+            else
+            {
+                aviso.setText("Contraseña incorrecta");
+                aviso.show();
+            }
         }
     }
 

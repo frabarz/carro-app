@@ -21,6 +21,7 @@
 
             <TextView
                 style="@style/h1"
+                android:id="@+id/welcome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Bienvenido de vuelta, {nombre}"/>
@@ -39,22 +40,40 @@
                 android:src="@drawable/placeholder"/>
 
             <Button
-                android:id="@+id/btn_categoria_hogar"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Hogar"
-                android:onClick="launchCategoryActivity"/>
-            <Button
                 android:id="@+id/btn_categoria_auto"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Auto"
+                android:text="Automovil"
                 android:onClick="launchCategoryActivity"/>
             <Button
                 android:id="@+id/btn_categoria_cuidado"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Cuidado personal"
+                android:onClick="launchCategoryActivity"/>
+            <Button
+                android:id="@+id/btn_categoria_outdoor"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Outdoor"
+                android:onClick="launchCategoryActivity"/>
+            <Button
+                android:id="@+id/btn_categoria_blanca"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Línea blanca"
+                android:onClick="launchCategoryActivity"/>
+            <Button
+                android:id="@+id/btn_categoria_menaje"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Menaje"
+                android:onClick="launchCategoryActivity"/>
+            <Button
+                android:id="@+id/btn_categoria_cocina"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Cocina"
                 android:onClick="launchCategoryActivity"/>
 
             </LinearLayout>

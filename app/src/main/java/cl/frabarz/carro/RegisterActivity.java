@@ -38,17 +38,20 @@ public class RegisterActivity extends ActionBarActivity
         RadioGroup
                 input_genero = (RadioGroup) findViewById(R.id.register_genero);
 
-        String  nombre = input_nombre.getText().toString(),
-                edad = input_edad.getText().toString(),
-                genero = String.valueOf(input_genero.getCheckedRadioButtonId());
+        String  username = input_username.getText().toString(),
+                password = input_password.getText().toString(),
+                nombre   = input_nombre.getText().toString(),
+                edad     = input_edad.getText().toString(),
+                genero   = String.valueOf(input_genero.getCheckedRadioButtonId());
 
-        // Aquí hay que enviar los datos al servicio web de registro
+        UsersHelper admin = new UsersHelper(this);
+        admin.registrar(username, password, nombre, edad, genero);
+
         finalizarRegistro(getIntent());
     }
 
     private void finalizarRegistro(Intent data)
     {
-        //Intent data = new Intent();
         data.putExtra("username", input_username.getText().toString());
         data.putExtra("password", input_password.getText().toString());
         setResult(RESULT_OK, data);
