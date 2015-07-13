@@ -47,16 +47,20 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/producto_addwish"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/action_fav_add" />
+                    android:text="@string/action_wish_add"
+                    android:onClick="addProductToList" />
 
                 <Button
+                    android:id="@+id/producto_addcarro"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/action_cart_add" />
+                    android:text="@string/action_cart_add"
+                    android:onClick="addProductToList" />
 
             </LinearLayout>
 

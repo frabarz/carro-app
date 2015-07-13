@@ -177,10 +177,10 @@ public class ProductosAdapter extends ArrayAdapter<Object> implements Filterable
         for (int i = 0; i < total; i++)
         {
             producto = new Producto();
-            producto.setId(i+1);
+            producto.setId(i+1L);
             producto.setNombre( elems[r.nextInt(n_elems)] );
             producto.setDescripcion( lipsum[r.nextInt(6)] );
-            producto.setPrecio( "$" + ((r.nextInt(15) + 1) * 1000) );
+            producto.setPrecio( (r.nextInt(15) + 1) * 1000 );
             //producto.setCategoria();
 
             complete_list.add(producto);

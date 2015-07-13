@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:minHeight="?attr/listPreferredItemHeight"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:orientation="horizontal">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin">
+    <ImageView
+        android:id="@+id/producto_imagen"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"/>
 
-        <ImageView
-            android:id="@+id/producto_imagen"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/ic_launcher"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp">
 
         <TextView
             android:id="@+id/producto_nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/producto_imagen"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_toRightOf="@+id/producto_imagen"
-            android:layout_toEndOf="@+id/producto_imagen"
             android:ellipsize="end"
             android:singleLine="true"
             android:textStyle="bold"
@@ -35,13 +33,19 @@
             android:id="@+id/producto_precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/producto_nombre"
-            android:layout_alignStart="@+id/producto_nombre"
-            android:layout_below="@+id/producto_nombre"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="$precio" />
+            android:text="@string/placeholder_precio" />
 
-    </RelativeLayout>
+        </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/producto_ellipsis"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/abc_ic_menu_moreoverflow_mtrl_alpha"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="Opciones" />
 
 </LinearLayout>

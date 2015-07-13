@@ -3,6 +3,7 @@
     package="cl.frabarz.carro" >
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
@@ -83,10 +84,10 @@
         </activity>
 
         <activity
-            android:name=".FavoriteActivity"
+            android:name=".WishActivity"
             android:label="Mis Favoritos" >
             <intent-filter>
-                <action android:name="android.intent.action.FAVORITES" />
+                <action android:name="android.intent.action.WISHLIST" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

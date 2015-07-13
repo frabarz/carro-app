@@ -2,36 +2,25 @@ package cl.frabarz.carro;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.ListFragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.FilterQueryProvider;
 import android.widget.ListView;
 
-public class SearchActivity extends Activity
+public class SearchActivity extends FragmentActivity
 {
     public EditText input;
-
-    private ProductosAdapter adapter;
-
-    private TextWatcher filterTextWatcher = new TextWatcher()
-    {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            adapter.getFilter().filter(s.toString());
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-        }
-    };
+    private TextWatcher filterTextWatcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,29 +28,24 @@ public class SearchActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        adapter = new ProductosAdapter(SearchActivity.this);
-        adapter.generarProductos(100);
+        final ProductListFragment fragment = (ProductListFragment) getSupportFragmentManager().findFragmentById(R.id.search_listview);
+        fragment.getListView().setTextFilterEnabled(true);
 
-        ListView lista = (ListView) findViewById(R.id.activity_listview);
-        lista.setAdapter(adapter);
-        lista.setTextFilterEnabled(true);
-
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        filterTextWatcher = new TextWatcher()
         {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                Producto producto = adapter.getItem(position);
-                Intent intent = new Intent(SearchActivity.this, ProductActivity.class);
-
-                intent.putExtra("id", producto.getId());
-                intent.putExtra("nombre", producto.getNombre());
-                intent.putExtra("precio", producto.getPrecio());
-                intent.putExtra("descripcion", producto.getDescripcion());
-                intent.putExtra("imagen", producto.getImagen());
-
-                startActivity(intent);
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-        });
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                ProductosCursorAdapter adapter = (ProductosCursorAdapter) fragment.getListAdapter();
+                adapter.getFilter().filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        };
 
         input = (EditText) findViewById(R.id.search_input);
         input.addTextChangedListener(filterTextWatcher);

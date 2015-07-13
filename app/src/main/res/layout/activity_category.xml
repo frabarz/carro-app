@@ -18,10 +18,11 @@
         android:textSize="22sp"
         android:text="Categoría" />
 
-    <ListView
-        android:id="@+id/categoria_listview"
+    <fragment
+        android:id="@+id/category_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/activity_vertical_titlebar_spacer"/>
+        android:layout_marginTop="@dimen/activity_vertical_titlebar_spacer"
+        android:name="cl.frabarz.carro.ProductListFragment" />
 
 </RelativeLayout>

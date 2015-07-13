@@ -1,18 +1,21 @@
 package cl.frabarz.carro;
 
+import android.content.ContentValues;
+
 import java.text.Normalizer;
 
 public class Producto {
-    private Integer
+    private Long
         id;
+    private int
+        precio;
     private String
         nombre,
-        precio,
         categoria,
         descripcion,
         imagen;
 
-    public void setId(Integer id)
+    public void setId(Long id)
     {
         this.id = id;
     }
@@ -20,7 +23,7 @@ public class Producto {
     {
         this.nombre = nombre;
     }
-    public void setPrecio(String precio)
+    public void setPrecio(int precio)
     {
         this.precio = precio;
     }
@@ -37,7 +40,7 @@ public class Producto {
         this.imagen = imagen;
     }
 
-    public Integer getId()
+    public Long getId()
     {
         return this.id;
     }
@@ -46,6 +49,10 @@ public class Producto {
         return this.nombre;
     }
     public String getPrecio()
+    {
+        return "$" + this.precio;
+    }
+    public int getPrecioRaw()
     {
         return this.precio;
     }
@@ -66,5 +73,16 @@ public class Producto {
     {
         return Normalizer.normalize(this.nombre.toLowerCase(), Normalizer.Form.NFD)
                 .replaceAll("[^\\p{ASCII}]", "");
+    }
+
+    public ContentValues getAsContentValues()
+    {
+        ContentValues item = new ContentValues();
+        item.put("nombre",    nombre);
+        item.put("precio",    precio);
+        item.put("descrip",   descripcion);
+        item.put("categoria", categoria);
+        item.put("imagen",    imagen);
+        return item;
     }
 }
